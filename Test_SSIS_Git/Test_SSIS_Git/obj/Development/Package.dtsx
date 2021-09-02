@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="HTHVY-SPECTRE"
   DTS:CreationDate="9/2/2021 3:37:55 PM"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{6F0E503D-4D08-4DA3-BF89-B2F892E0694D}"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{7D0DC3FB-388F-423C-B223-065F6F13460A}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
@@ -15,48 +15,6 @@
   DTS:CreationName="SSIS.Package.3">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.19CLC10DB]"
-      DTS:ObjectName="LocalHost.19CLC10DB"
-      DTS:DTSID="{AF8B72D7-E20E-4CCC-955F-631662DC5518}"
-      DTS:CreationName="OLEDB">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=19CLC10DB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.abc]"
-      DTS:ObjectName="LocalHost.abc"
-      DTS:DTSID="{18996275-8E01-4BD1-BFE0-E1F544BFBE85}"
-      DTS:CreationName="OLEDB">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=abc;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.DB19CLC9DB]"
-      DTS:ObjectName="LocalHost.DB19CLC9DB"
-      DTS:DTSID="{1CDD5FC6-FD05-457B-9EB7-F3B895E83105}"
-      DTS:CreationName="OLEDB">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DB19CLC9DB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.DDS_Demo]"
-      DTS:ObjectName="LocalHost.DDS_Demo"
-      DTS:DTSID="{DFB3E709-233B-4AEA-B3E2-80E26B2FE363}"
-      DTS:CreationName="OLEDB">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DDS_Demo;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -73,6 +31,79 @@
           version="1">
           <components>
             <component
+              refId="Package\Data Flow Task\Derived Column"
+              name="Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[newCol]"
+                      name="newCol"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[newCol]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">1</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Data Flow Task\OLE DB Destination"
               name="OLE DB Destination"
               componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
@@ -88,7 +119,7 @@
                 <property
                   name="OpenRowset"
                   dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset.">[OLE DB Destination]</property>
+                  description="Specifies the name of the database object used to open a rowset.">[OLE DB Destination2]</property>
                 <property
                   name="OpenRowsetVariable"
                   dataType="System.String"
@@ -133,8 +164,8 @@
                   refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
                   name="OleDbConnection"
                   description="The OLE DB runtime connection used to access the database."
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.19CLC10DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.19CLC10DB]" />
+                  connectionManagerID="{AF8B72D7-E20E-4CCC-955F-631662DC5518}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.19CLC10DB]" />
               </connections>
               <inputs>
                 <input
@@ -180,6 +211,12 @@
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[status]"
                       cachedName="status"
                       cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[newCol]"
+                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[newCol]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[newCol]"
+                      cachedName="newCol"
+                      cachedDataType="i4" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -208,6 +245,10 @@
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[status]"
                       name="status"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[newCol]"
+                      name="newCol"
                       dataType="i4" />
                   </externalMetadataColumns>
                 </input>
@@ -290,8 +331,8 @@
                   refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
                   name="OleDbConnection"
                   description="The OLE DB runtime connection used to access the database."
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DDS_Demo]" />
+                  connectionManagerID="{DFB3E709-233B-4AEA-B3E2-80E26B2FE363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.DDS_Demo]" />
               </connections>
               <outputs>
                 <output
@@ -436,10 +477,15 @@
           </components>
           <paths>
             <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+            <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
               name="OLE DB Source Output"
               startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -468,29 +514,79 @@
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="169.846153846154,42.0923076923077"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="212.782417609366,242.625639273706" />
         <NodeLayout
           Size="149.169230769231,42.0923076923077"
           Id="Package\Data Flow Task\OLE DB Source"
           TopLeft="219.323076923077,33.2307692307692" />
         <NodeLayout
-          Size="169.846153846154,42.0923076923077"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="211.2,176.492307692308" />
+          Size="152.861538461539,42.0923076923077"
+          Id="Package\Data Flow Task\Derived Column"
+          TopLeft="233.986817184161,120.861535240239" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="295.015384615385,75.3230769230769">
+          TopLeft="293.907692307692,75.3230769230769">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,101.169230769231"
+              EndConnector="16.5098941072377,45.5384583171618"
               Start="0,0"
-              End="0,93.6692307692308">
+              End="16.5098941072377,38.0384583171618">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,93.6692307692308" />
+                    End="0,18.7692291585809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7692291585809"
+                    Point2="0,22.7692291585809"
+                    Point3="4,22.7692291585809" />
+                  <mssgle:LineSegment
+                    End="12.5098941072377,22.7692291585809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.5098941072377,22.7692291585809"
+                    Point2="16.5098941072377,22.7692291585809"
+                    Point3="16.5098941072377,26.7692291585809" />
+                  <mssgle:LineSegment
+                    End="16.5098941072377,38.0384583171618" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="310.41758641493,162.953842932546">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.7120918824872,79.67179634116"
+              Start="0,0"
+              End="-12.7120918824872,72.17179634116">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.83589817058" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.83589817058"
+                    Point2="0,39.83589817058"
+                    Point3="-4,39.83589817058" />
+                  <mssgle:LineSegment
+                    End="-8.71209188248719,39.83589817058" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.71209188248719,39.83589817058"
+                    Point2="-12.7120918824872,39.83589817058"
+                    Point3="-12.7120918824872,43.83589817058" />
+                  <mssgle:LineSegment
+                    End="-12.7120918824872,72.17179634116" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -503,7 +599,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -516,7 +612,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
